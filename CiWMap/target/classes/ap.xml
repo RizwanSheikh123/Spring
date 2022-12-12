@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+        
+        <bean id="id1" class="com.sheikh.bean.Id">
+        	<constructor-arg value="75477" />
+        </bean>
+        <bean id="writer1" class="com.sheikh.bean.Writer">
+        	<constructor-arg value="Dr. Tanveer" />
+        </bean>
+        
+        <bean id="id2" class="com.sheikh.bean.Id">
+        	<constructor-arg value="75478" />
+        </bean>
+        <bean id="writer2" class="com.sheikh.bean.Writer">
+        	<constructor-arg value="Dr. Gaurav" />
+        </bean>
+        
+        <bean id="id3" class="com.sheikh.bean.Id">
+        	<constructor-arg value="75479" />
+        </bean>
+        <bean id="writer3" class="com.sheikh.bean.Writer">
+        	<constructor-arg value="Dr. Rizwan" />
+        </bean>
+        
+        <bean id="book" class="com.sheikh.bean.Book">
+        	<constructor-arg value="Welcome to Core Java"/>
+        	<constructor-arg value="Java"/>
+        	<constructor-arg>
+        		<map>
+        			<entry key-ref="id1" value-ref="writer2"></entry>
+        			<entry key-ref="id3" value-ref="writer1"></entry>
+        			<entry key-ref="id2" value-ref="writer3"></entry>
+        		</map>
+        	</constructor-arg>
+        </bean>
+</beans>

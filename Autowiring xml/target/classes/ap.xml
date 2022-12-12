@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	<bean id="address1" class="com.sheikh.bean.Address">
+		<property name="street" value="GP"/>
+		<property name="city" value="Indore"/>
+	</bean>
+	<bean id="address" class="com.sheikh.bean.Address">
+		<property name="street" value="Khajrana"/>
+		<property name="city" value="Indore"/>
+	</bean>
+	
+	<!-- Autowiring By Name -->
+	
+	<!-- <bean id="emp" class="com.sheikh.bean.Emp" autowire="byName"/> -->
+	
+	<!-- 
+		It will go to our emp class and will look if autowiring can
+	 	be performed or not. It will match the reference variable name
+	 	with the bean name in configuration file.
+	 -->
+	 
+	<!-- Autowiring By Type -->
+	<!-- <bean id="emp" class="com.sheikh.bean.Emp" autowire="byType"/> -->
+	
+	<!-- Note that if we have two bean of same type then we will get Exception in case of byType-->
+	
+	<!-- Autowiring By constructor -->
+	<bean id="emp" class="com.sheikh.bean.Emp" autowire="constructor"/>
+	
+	<!-- Bean name and constructor parameter name should be same -->
+</beans>

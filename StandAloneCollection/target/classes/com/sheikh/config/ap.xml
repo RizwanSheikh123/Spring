@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util  
+        http://www.springframework.org/schema/util/spring-util.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- We can refer to this collection in multiple bean -->
+	<!-- Standalone List -->
+	<util:list list-class="java.util.Vector" id="cust">
+		<value>Aman</value>
+		<value>Raman</value>
+		<value>Ankit</value>
+		<value>Rohit</value>
+		<value>Vivek</value>
+	</util:list>
+	
+	<!-- Standalone Map -->
+	<util:map map-class="java.util.HashMap" id="chr">
+		<entry key="sql" value="400"></entry>
+		<entry key="mysql" value="500"></entry>
+		<entry key="oql" value="600"></entry>
+	</util:map>
+	
+	<!-- Standalone Properties -->
+	<!-- Class nahi batana hai -->
+	<util:properties id="dbconfig">
+		<prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+		<prop key="username">root</prop>
+		<prop key="password">root</prop>
+		<prop key="url">mysql:jdbc://localhost:3306/database</prop>
+	</util:properties>
+	
+	<bean id="vendor" class="com.sheikh.bean.Vendor">
+		<property name ="vendorAddress" value="Gujrah" />
+		<property name ="vendorId" value="111"/>
+		<property name ="vendorName" value="Tanveer"/>
+		<property name ="customer" ref="cust">
+			<!-- <ref bean="cust"/> -->
+		</property> 
+		<property name ="charges" ref="chr">
+			<!-- <ref bean="cust"/> -->
+		</property> 
+		<property name ="properties" ref="dbconfig">
+			<!-- <ref bean="cust"/> -->
+		</property> 
+	</bean>
+	
+</beans>

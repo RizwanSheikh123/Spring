@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context.xsd  
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<bean id="customer1" class="com.sheikh.bean.Customer">
+		<constructor-arg value="141" type="int"/>
+		<constructor-arg value="Rizwan"/>
+		<constructor-arg value="Indore"/>
+	</bean>
+	<bean id="customer2" class="com.sheikh.bean.Customer">
+		<constructor-arg value="142" type="int"/>
+		<constructor-arg value="izwan"/>
+		<constructor-arg value="Idore"/>
+	</bean>
+	<bean id="customer3" class="com.sheikh.bean.Customer">
+		<constructor-arg value="143" type="int"/>
+		<constructor-arg value="zwan"/>
+		<constructor-arg value="China"/>
+	</bean>
+	<bean id="vendor" class="com.sheikh.bean.Vendor">
+		<constructor-arg value="201" type="int"/>
+		<constructor-arg value="Tanveer"/>
+		<constructor-arg value="Gujrat"/>
+		<constructor-arg>
+			<list>
+				<ref bean="customer1"/>
+				<ref bean="customer2"/>
+				<ref bean="customer3"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+</beans>
